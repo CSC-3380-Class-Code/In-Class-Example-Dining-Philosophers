@@ -7,7 +7,7 @@ class Constants{
 
 public class DiningPhilosophersRunner{
 	static void Main(){
-		int NUM_PHILOSOPHERS = 5;
+		int NUM_PHILOSOPHERS = 20;
 
 		Object[] chopsticks = new Object[NUM_PHILOSOPHERS];
 		for(int i = 0; i < NUM_PHILOSOPHERS; i++){
@@ -45,7 +45,7 @@ public class DiningPhilosophersRunner{
 }
 
 public class Philosopher{
-	private const int MAX_EATING = 100;
+	private const int MAX_EATING = 1000;
 	private readonly Object leftChopstick;
 	private readonly Object rightChopstick;
 	private readonly int id;
@@ -63,9 +63,9 @@ public class Philosopher{
 				lock(rightChopstick){
 					Console.WriteLine($"{Constants.timesEaten}: Philosopher {id} is eating.");
 					Interlocked.Increment(ref Constants.timesEaten);
-					Think();
 				}
 			}
+			Think();
 			selfEats++;
 		}
 	}
@@ -73,8 +73,7 @@ public class Philosopher{
 	public void Think(){
 
 		Console.WriteLine($"Philosopher {id} is thinking.");
-
-		Thread.Sleep(500);
+		Thread.Sleep(10);
 
 	}
 }
