@@ -18,6 +18,10 @@ public class DiningPhilosophersRunner{
 		for(int i = 0; i < NUM_PHILOSOPHERS; i++){
 			int left = (i+1) % NUM_PHILOSOPHERS > i ? i : (i+1) % NUM_PHILOSOPHERS;
 			int right = left < i ? i : (i+1) % NUM_PHILOSOPHERS;
+
+			// int left = i;
+			// int right = (i+1) % NUM_PHILOSOPHERS;
+
 			philosophers[i] = new Philosopher(chopsticks[left], chopsticks[right], i);
 		}
 
